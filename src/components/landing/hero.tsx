@@ -83,9 +83,9 @@ export function Hero() {
               className="bg-white/80 hover:bg-white text-black rounded-full w-[30px] h-[30px]"
             >
               {isPlaying ? (
-                <Pause className="h-4 w-4" />
+                <Pause className="h-4 w-4" fill="currentColor" />
               ) : (
-                <Play className="h-4 w-4" />
+                <Play className="h-4 w-4" fill="currentColor" />
               )}
               <span className="sr-only">
                 {isPlaying ? 'Pause video' : 'Play video'}
