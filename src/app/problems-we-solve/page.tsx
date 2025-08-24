@@ -5,9 +5,9 @@ export default function ProblemsWeSolvePage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow container py-36 sm:py-48">
+      <main className="flex-grow container px-4 sm:px-6 lg:px-8 py-36 sm:py-48">
         <div className="text-center">
-          <h1 className="text-4xl font-headline font-normal tracking-tight sm:text-6xl">
+          <h1 className="text-3xl font-headline font-normal tracking-tight sm:text-6xl">
             Problems We Solve
           </h1>
           <p className="mt-6 text-base leading-7 text-muted-foreground max-w-2xl mx-auto">

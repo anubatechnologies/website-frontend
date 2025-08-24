@@ -54,7 +54,7 @@ export function Hero() {
             />
           </video>
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
-          <div className="relative container z-20 flex flex-col items-start justify-center h-full text-left text-white">
+          <div className="relative container px-4 sm:px-6 lg:px-8 z-20 flex flex-col items-start justify-center h-full text-left text-white">
             <div className="space-y-6 max-w-3xl">
               <h1 className="text-4xl font-headline font-normal tracking-tight sm:text-5xl lg:text-6xl">
                 Smarter Orders, Less Guesswork, Happier Customers
