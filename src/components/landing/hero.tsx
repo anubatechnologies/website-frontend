@@ -1,12 +1,15 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { PlayCircle } from 'lucide-react';
+import { PlayCircle, Play, Pause } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export function Hero() {
   const targetRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ['start start', 'end start'],
@@ -14,6 +17,17 @@ export function Hero() {
 
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
   const borderRadius = useTransform(scrollYProgress, [0, 0.5], ['0px', '24px']);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <section ref={targetRef} className="h-[200vh] relative">
@@ -23,6 +37,7 @@ export function Hero() {
           style={{ scale, borderRadius }}
         >
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
@@ -60,6 +75,22 @@ export function Hero() {
                 </Button>
               </div>
             </div>
+          </div>
+          <div className="absolute bottom-4 right-4 z-20">
+            <Button
+              size="icon"
+              onClick={togglePlay}
+              className="bg-white/80 hover:bg-white text-black rounded-full w-[30px] h-[30px]"
+            >
+              {isPlaying ? (
+                <Pause className="h-4 w-4" />
+              ) : (
+                <Play className="h-4 w-4" />
+              )}
+              <span className="sr-only">
+                {isPlaying ? 'Pause video' : 'Play video'}
+              </span>
+            </Button>
           </div>
         </motion.div>
       </div>
