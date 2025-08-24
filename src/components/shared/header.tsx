@@ -21,7 +21,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 50) {
+    // When the user scrolls past the hero section (which is 1 screen high)
+    if (latest > window.innerHeight) {
       setScrolled(true);
     } else {
       setScrolled(false);
@@ -31,23 +32,30 @@ export function Header() {
 
   return (
     <motion.header 
-      className="sticky top-0 z-50 w-full"
-      initial={{ top: 0 }}
+      className="fixed top-0 z-50 w-full"
+      initial={{ top: '1rem' }}
       animate={{ 
-        top: scrolled ? '0.5rem' : 0,
+        top: scrolled ? '0.5rem' : '1rem',
        }}
       transition={{ duration: 0.3 }}
     >
       <motion.div
         className="mx-auto"
-        initial={{ width: '100%', borderRadius: '0px' }}
+        initial={{ 
+          width: 'calc(100% - 2rem)', 
+          borderRadius: '0.5rem',
+          backgroundColor: 'hsla(0, 0%, 100%, 0)',
+          border: '1px solid hsla(0, 0%, 100%, 0)',
+        }}
         animate={{
-          width: scrolled ? 'calc(100% - 1rem)' : '100%',
-          borderRadius: scrolled ? '0.5rem' : '0px',
+          width: 'calc(100% - 2rem)',
+          borderRadius: '0.5rem',
+          backgroundColor: scrolled ? 'hsla(var(--background))' : 'hsla(var(--background) / 0.5)',
+          borderColor: scrolled ? 'hsl(var(--border))' : 'hsla(var(--border) / 0)',
         }}
         transition={{ duration: 0.3 }}
       >
-        <div className="container flex h-16 items-center border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-16 items-center">
           <div className="mr-auto flex items-center">
             <Link href="/" className="mr-6 flex items-center space-x-2">
               <Logo className="h-6 w-6" />
