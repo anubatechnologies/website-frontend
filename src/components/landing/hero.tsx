@@ -12,14 +12,14 @@ export function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], ['0px', '24px']);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.95]);
+  const borderRadius = useTransform(scrollYProgress, [0, 0.5], ['0px', '24px']);
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
 
   return (
     <section ref={targetRef} className="h-[200vh] relative">
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
-        <motion.div 
+        <motion.div
           className="relative w-full h-full overflow-hidden"
           style={{ scale, borderRadius, y }}
         >
@@ -33,7 +33,10 @@ export function Hero() {
             data-ai-hint="abstract background"
           >
             {/* You can replace this with your own video */}
-            <source src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4" type="video/mp4" />
+            <source
+              src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4"
+              type="video/mp4"
+            />
           </video>
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
           <div className="relative container z-20 flex flex-col items-center justify-center h-full text-center text-white">
@@ -42,13 +45,17 @@ export function Hero() {
                 Smarter Orders, Less Guesswork, Happier Customers
               </h1>
               <p className="text-lg text-white/80">
-                Our new model orders. Drastically reduce waste, free up your team’s
-                time from tedious inventory tasks, and improve the freshness and
-                availability of your products. All with AI.
+                Our new model orders. Drastically reduce waste, free up your
+                team’s time from tedious inventory tasks, and improve the
+                freshness and availability of your products. All with AI.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg">Request a Demo</Button>
-                <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white hover:text-black">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent text-white border-white hover:bg-white hover:text-black"
+                >
                   <PlayCircle className="mr-2 h-5 w-5" />
                   Watch Video
                 </Button>
