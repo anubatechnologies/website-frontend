@@ -18,7 +18,7 @@ export function Hero() {
 
   return (
     <section ref={targetRef} className="h-[200vh] relative">
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center p-8">
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center p-0 md:p-8">
         <motion.div
           className="relative w-full h-full overflow-hidden"
           style={{ scale, borderRadius, y }}
