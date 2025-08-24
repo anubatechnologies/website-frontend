@@ -12,13 +12,13 @@ export function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.95, 0.95]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
   const borderRadius = useTransform(scrollYProgress, [0, 0.5], ['0px', '24px']);
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
+  const y = useTransform(scrollYProgress, [0, 0.5], ['0%', '2%']);
 
   return (
     <section ref={targetRef} className="h-[200vh] relative">
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center p-8">
         <motion.div
           className="relative w-full h-full overflow-hidden"
           style={{ scale, borderRadius, y }}
