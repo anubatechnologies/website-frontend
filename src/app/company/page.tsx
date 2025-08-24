@@ -10,7 +10,7 @@ export default function CompanyPage() {
           <h1 className="text-4xl font-headline font-normal tracking-tight sm:text-6xl">
             Company
           </h1>
-          <p className="mt-6 text-base leading-7 text-muted-foreground">
+          <p className="mt-6 text-base leading-7 text-muted-foreground max-w-2xl mx-auto">
             Content for this page is coming soon.
           </p>
         </div>
