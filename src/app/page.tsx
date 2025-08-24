@@ -13,11 +13,13 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        <Features />
-        <VideoSection />
-        <Benefits />
-        <News />
-        <Cta />
+        <div className="mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
+          <Features />
+          <VideoSection />
+          <Benefits />
+          <News />
+          <Cta />
+        </div>
       </main>
       <Footer />
     </div>

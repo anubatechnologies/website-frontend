@@ -33,7 +33,7 @@ export default function FeaturesPage() {
       <Header />
       <main className="flex-grow">
         <section className="py-24 sm:py-32">
-          <div className="container">
+          <div className="mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl font-headline font-bold tracking-tight sm:text-6xl">
                 Powerful Features
