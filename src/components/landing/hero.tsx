@@ -12,16 +12,15 @@ export function Hero() {
     offset: ['start start', 'end start'],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.98]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
   const borderRadius = useTransform(scrollYProgress, [0, 0.5], ['0px', '24px']);
-  const y = useTransform(scrollYProgress, [0, 0.5], ['0%', '2%']);
 
   return (
     <section ref={targetRef} className="h-[200vh] relative">
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center p-0">
         <motion.div
           className="relative w-full h-full overflow-hidden"
-          style={{ scale, borderRadius, y }}
+          style={{ scale, borderRadius }}
         >
           <video
             autoPlay
