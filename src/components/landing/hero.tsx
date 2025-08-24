@@ -2,13 +2,14 @@
 
 import { Button } from '@/components/ui/button';
 import { Eye, Pause, Play } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
 
 export function Hero() {
   const targetRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -75,21 +76,40 @@ export function Hero() {
               </div>
             </div>
           </div>
-          <div className="absolute bottom-4 right-4 z-20">
-            <Button
-              size="icon"
-              onClick={togglePlay}
-              className="bg-white/80 hover:bg-white text-black rounded-full w-[30px] h-[30px]"
-            >
-              {isPlaying ? (
-                <Pause className="h-4 w-4" fill="currentColor" />
-              ) : (
-                <Play className="h-4 w-4" fill="currentColor" />
-              )}
-              <span className="sr-only">
-                {isPlaying ? 'Pause video' : 'Play video'}
-              </span>
-            </Button>
+          <div
+            className="absolute bottom-4 right-4 z-20"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <div className="flex items-center gap-2">
+              <AnimatePresence>
+                {isHovered && (
+                  <motion.span
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: 'auto' }}
+                    exit={{ opacity: 0, width: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-white text-sm"
+                  >
+                    {isPlaying ? 'Pause' : 'Play'}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+              <Button
+                size="icon"
+                onClick={togglePlay}
+                className="bg-white/80 hover:bg-white text-black rounded-full w-[30px] h-[30px]"
+              >
+                {isPlaying ? (
+                  <Pause className="h-4 w-4" fill="currentColor" />
+                ) : (
+                  <Play className="h-4 w-4" fill="currentColor" />
+                )}
+                <span className="sr-only">
+                  {isPlaying ? 'Pause video' : 'Play video'}
+                </span>
+              </Button>
+            </div>
           </div>
         </motion.div>
       </div>
