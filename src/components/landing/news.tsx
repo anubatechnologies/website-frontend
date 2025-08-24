@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 
 const featuredArticle = {
   category: "Partnerships",
-  title: "Kinetic and Nova POS Announce Integration",
-  description: "This new integration allows for seamless data flow between Kinetic's prediction engine and Nova's point-of-sale system, unlocking new efficiencies for restaurants.",
+  title: "Anuba and Nova POS Announce Integration",
+  description: "This new integration allows for seamless data flow between Anuba's prediction engine and Nova's point-of-sale system, unlocking new efficiencies for restaurants.",
   image: "https://placehold.co/600x400.png",
   hint: "two logos"
 };
@@ -29,7 +29,7 @@ const otherArticles = [
   {
     category: "Case Study",
     title: "How The Daily Grind Boosted Profits by 25%",
-    description: "Learn how this popular coffee chain leveraged Kinetic to reduce waste and increase sales.",
+    description: "Learn how this popular coffee chain leveraged Anuba to reduce waste and increase sales.",
     image: "https://placehold.co/200x150.png",
     hint: "coffee shop"
   },

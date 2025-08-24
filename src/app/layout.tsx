@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Kinetic SaaS',
-  description: 'Welcome to Kinetic SaaS',
+  title: 'Anuba Technologies',
+  description: 'Welcome to Anuba Technologies',
 };
 
 export default function RootLayout({

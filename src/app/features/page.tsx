@@ -20,7 +20,7 @@ const features = [
   },
   {
     name: "Seamless Integrations",
-    description: "Connect Kinetic SaaS with your favorite tools and services. We support a wide range of integrations to fit your workflow.",
+    description: "Connect Anuba Technologies with your favorite tools and services. We support a wide range of integrations to fit your workflow.",
     image: "https://placehold.co/600x400.png",
     alt: "Seamless Integrations",
     hint: "app logos",
