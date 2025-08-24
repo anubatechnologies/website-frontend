@@ -38,31 +38,25 @@ export function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 z-50 w-full"
-      initial={{ top: '1rem' }}
+      className="fixed z-50 w-full p-4"
       animate={controls}
+      initial="visible"
       variants={{
-        visible: { y: 0, top: scrolled ? '0.5rem' : '1rem' },
-        hidden: { y: '-100%' },
+        visible: { y: 0 },
+        hidden: { y: '-120%' },
       }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.35, ease: 'easeInOut' }}
     >
       <motion.div
-        className="mx-auto"
-        initial={{
-          width: 'calc(100% - 2rem)',
-          borderRadius: '0.5rem',
-        }}
+        className="mx-auto border"
         animate={{
-          width: 'calc(100% - 2rem)',
-          borderRadius: '0.5rem',
           backgroundColor: scrolled ? 'hsl(var(--background))' : 'transparent',
           borderColor: scrolled ? 'hsl(var(--border))' : 'transparent',
           color: scrolled ? 'hsl(var(--foreground))' : 'hsl(var(--primary-foreground))',
         }}
         transition={{ duration: 0.3 }}
         style={{
-          borderWidth: '1px',
+          borderRadius: '0.5rem',
         }}
       >
         <div className="container flex h-16 items-center">
@@ -105,7 +99,7 @@ export function Header() {
             <Button asChild
              variant={scrolled ? 'default' : 'outline'}
              className={cn(
-               !scrolled && 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-black'
+               !scrolled && 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary'
              )}
             >
               <Link href="/register">Sign Up</Link>
@@ -143,12 +137,14 @@ export function Header() {
                       {link.label}
                     </Link>
                   ))}
-                  <Button variant="ghost" asChild>
-                    <Link href="/login">Login</Link>
-                  </Button>
-                  <Button asChild>
-                    <Link href="/register">Sign Up</Link>
-                  </Button>
+                  <div className="flex flex-col items-start space-y-2">
+                    <Button variant="ghost" asChild className="w-full justify-start">
+                      <Link href="/login">Login</Link>
+                    </Button>
+                    <Button asChild className="w-full justify-start">
+                      <Link href="/register">Sign Up</Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
             </SheetContent>
