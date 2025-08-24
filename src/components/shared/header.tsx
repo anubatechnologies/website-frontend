@@ -43,7 +43,7 @@ export function Header() {
       animate={controls}
       variants={{
         visible: { y: 0, top: scrolled ? '0.5rem' : '1rem' },
-        hidden: { y: '-200%' },
+        hidden: { y: '-100%' },
       }}
       transition={{ duration: 0.3 }}
     >
@@ -105,8 +105,7 @@ export function Header() {
             <Button asChild
              variant={scrolled ? 'default' : 'outline'}
              className={cn(
-               !scrolled && 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-black',
-               scrolled && 'text-primary-foreground hover:bg-primary/90'
+               !scrolled && 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-black'
              )}
             >
               <Link href="/register">Sign Up</Link>
