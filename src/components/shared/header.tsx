@@ -48,11 +48,12 @@ export function Header() {
       transition={{ duration: 0.35, ease: 'easeInOut' }}
     >
       <motion.div
-        className="mx-auto border"
+        className="mx-auto"
         animate={{
           backgroundColor: scrolled ? 'hsl(var(--background))' : 'transparent',
           borderColor: scrolled ? 'hsl(var(--border))' : 'transparent',
           color: scrolled ? 'hsl(var(--foreground))' : 'hsl(var(--primary-foreground))',
+          borderWidth: scrolled ? '1px' : '0px',
         }}
         transition={{ duration: 0.3 }}
         style={{
