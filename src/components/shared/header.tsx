@@ -10,11 +10,11 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '#', label: 'Why Anuba' },
-  { href: '#', label: 'AI Ordering Solutions' },
-  { href: '#', label: 'Problems We Solve' },
-  { href: '#', label: 'Resources' },
-  { href: '#', label: 'Company' },
+  { href: '/why-anuba', label: 'Why Anuba' },
+  { href: '/ai-ordering-solutions', label: 'AI Ordering Solutions' },
+  { href: '/problems-we-solve', label: 'Problems We Solve' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/company', label: 'Company' },
 ];
 
 export function Header() {
