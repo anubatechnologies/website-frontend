@@ -6,7 +6,7 @@ export function VideoSection() {
         <section className="py-20 md:py-32 bg-secondary/50">
             <div className="container text-center mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
                 <span className="text-primary font-semibold">40% Less Spend on Drive Thru</span>
-                <h2 className="text-4xl font-headline font-normal mt-2">Turning Drive-Thru Data Into Smart Next Order Predictions</h2>
+                <h2 className="text-3xl sm:text-4xl font-headline font-normal mt-2">Turning Drive-Thru Data Into Smart Next Order Predictions</h2>
                 <div className="mt-8">
                     <Image 
                         src="https://placehold.co/1200x600.png" 

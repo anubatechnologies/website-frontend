@@ -4,8 +4,8 @@ export function Cta() {
   return (
     <section id="contact" className="py-20 md:py-32">
       <div className="container text-center">
-        <h2 className="text-4xl font-headline font-normal">Ready to get in touch?</h2>
-        <p className="mt-4 text-base text-muted-foreground max-w-2xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-headline font-normal">Ready to get in touch?</h2>
+        <p className="mt-4 text-base text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
           See how our AI-powered platform can help you reduce waste, save time, and increase sales.
         </p>
         <Button size="lg" className="mt-8">

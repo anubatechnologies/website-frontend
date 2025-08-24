@@ -70,12 +70,12 @@ export default function PricingPage() {
                   }`}
                 >
                   <CardHeader>
-                    <CardTitle className="font-headline">{tier.name}</CardTitle>
+                    <CardTitle className="font-headline text-2xl sm:text-3xl">{tier.name}</CardTitle>
                     <CardDescription>{tier.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <div className="mb-6">
-                      <span className="text-4xl font-bold">{tier.price}</span>
+                      <span className="text-3xl sm:text-4xl font-bold">{tier.price}</span>
                       {tier.price !== "Custom" && (
                         <span className="text-muted-foreground">/month</span>
                       )}

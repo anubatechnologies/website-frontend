@@ -49,7 +49,7 @@ export default function FeaturesPage() {
                   className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16"
                 >
                   <div className={`lg:col-start-${index % 2 === 0 ? 1 : 2}`}>
-                    <h2 className="text-3xl font-normal tracking-tight font-headline">
+                    <h2 className="text-2xl sm:text-3xl font-normal tracking-tight font-headline">
                       {feature.name}
                     </h2>
                     <p className="mt-4 text-muted-foreground">
