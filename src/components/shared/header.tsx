@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/why-anuba', label: 'Why Anuba' },
@@ -23,6 +24,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const isScrolled = latest > 50;
@@ -38,7 +41,7 @@ export function Header() {
     }
   });
   
-  const showWhiteBg = scrolled || isHovered;
+  const showWhiteBg = !isHomePage || scrolled || isHovered;
 
   return (
     <motion.header
