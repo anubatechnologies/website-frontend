@@ -30,7 +30,7 @@ export function Features() {
         <div className="container">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-4xl font-headline font-normal">The Technology Behind Smarter Ordering</h2>
-                <p className="mt-4 text-lg text-muted-foreground">
+                <p className="mt-4 text-base text-muted-foreground">
                     A first-of-its-kind smart ordering and inventory management platform with our proprietary Prediction Engine.
                 </p>
                 <div className="mt-8 flex justify-center gap-4">

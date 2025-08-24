@@ -59,7 +59,7 @@ export function Hero() {
               <h1 className="text-4xl font-headline font-normal tracking-tight sm:text-5xl lg:text-6xl">
                 Smarter Orders, Less Guesswork, Happier Customers
               </h1>
-              <p className="text-lg text-white/80">
+              <p className="text-base text-white/80">
                 Our new model orders. Drastically reduce waste, free up your
                 team’s time from tedious inventory tasks, and improve the
                 freshness and availability of your products. All with AI.

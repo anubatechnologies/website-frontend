@@ -57,7 +57,7 @@ export default function PricingPage() {
               <h1 className="text-4xl font-headline font-normal tracking-tight sm:text-6xl">
                 Pricing Plans
               </h1>
-              <p className="mt-6 text-lg leading-8 text-muted-foreground">
+              <p className="mt-6 text-base leading-7 text-muted-foreground">
                 Choose the perfect plan for your needs.
               </p>
             </div>
