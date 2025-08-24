@@ -1,58 +1,41 @@
 'use client';
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { PlayCircle } from 'lucide-react';
 
 export function Hero() {
-  const FADE_UP_ANIMATION_VARIANTS = {
-    hidden: { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring' } },
-  };
-
   return (
-    <section className="container py-24 sm:py-32">
-      <motion.div
-        initial="hidden"
-        animate="show"
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          show: {
-            transition: {
-              staggerChildren: 0.15,
-            },
-          },
-        }}
-        className="max-w-3xl mx-auto text-center"
-      >
-        <motion.h1
-          className="text-4xl font-headline font-bold tracking-tight sm:text-6xl bg-gradient-to-br from-foreground to-muted-foreground bg-clip-text text-transparent"
-          variants={FADE_UP_ANIMATION_VARIANTS}
-        >
-          Unleash Your Potential with Kinetic SaaS
-        </motion.h1>
-        <motion.p
-          className="mt-6 text-lg leading-8 text-muted-foreground"
-          variants={FADE_UP_ANIMATION_VARIANTS}
-        >
-          The ultimate solution for streamlining your workflow, boosting productivity, and achieving your goals faster than ever before.
-        </motion.p>
-        <motion.div
-          className="mt-10 flex items-center justify-center gap-x-6"
-          variants={FADE_UP_ANIMATION_VARIANTS}
-        >
-          <Button asChild size="lg">
-            <Link href="/register">
-              Get Started Free <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-          <Button variant="ghost" asChild size="lg">
-            <Link href="/features">Learn More</Link>
-          </Button>
-        </motion.div>
-      </motion.div>
+    <section className="bg-secondary/50 py-20 md:py-32">
+      <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="space-y-6">
+          <h1 className="text-4xl font-headline font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Smarter Orders, Less Guesswork, Happier Customers
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Our new model orders. Drastically reduce waste, free up your team’s
+            time from tedious inventory tasks, and improve the freshness and
+            availability of your products. All with AI.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button size="lg">Request a Demo</Button>
+            <Button size="lg" variant="ghost">
+              <PlayCircle className="mr-2 h-5 w-5" />
+              Watch Video
+            </Button>
+          </div>
+        </div>
+        <div className="flex items-center justify-center">
+            <Image
+                src="https://placehold.co/600x400.png"
+                width={600}
+                height={400}
+                alt="Product demonstration video"
+                className="rounded-xl shadow-2xl"
+                data-ai-hint="product interface"
+            />
+        </div>
+      </div>
     </section>
   );
 }
