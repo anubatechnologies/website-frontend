@@ -10,10 +10,11 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '/features', label: 'Features' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/#news', label: 'News' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '#', label: 'Why Anuba' },
+  { href: '#', label: 'AI Ordering Solutions' },
+  { href: '#', label: 'Problems We Solve' },
+  { href: '#', label: 'Resources' },
+  { href: '#', label: 'Company' },
 ];
 
 export function Header() {
@@ -56,8 +57,8 @@ export function Header() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="mx-auto flex h-16 max-w-[1280px] items-center px-4 sm:px-6 lg:px-8">
-        <div className="mr-auto flex items-center">
+      <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Logo
               className={cn(
@@ -71,7 +72,7 @@ export function Header() {
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <nav className="hidden md:flex flex-1 justify-center items-center space-x-6 text-sm font-medium">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -88,26 +89,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:flex flex-1 items-center justify-end space-x-2">
-          <Button
-            variant="ghost"
-            asChild
-            className={cn(
-              !showWhiteBg &&
-                'text-primary-foreground hover:bg-white/10 hover:text-primary-foreground'
-            )}
-          >
-            <Link href="/login">Login</Link>
-          </Button>
-          <Button
-            asChild
-            variant={showWhiteBg ? 'default' : 'outline'}
-            className={cn(
-              !showWhiteBg &&
-                'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary'
-            )}
-          >
-            <Link href="/register">Sign Up</Link>
+        <div className="hidden md:flex items-center justify-end space-x-2">
+          <Button asChild>
+            <Link href="/#contact">Contact Us</Link>
           </Button>
         </div>
 
@@ -146,16 +130,9 @@ export function Header() {
                     {link.label}
                   </Link>
                 ))}
-                <div className="flex flex-col items-start space-y-2">
-                  <Button
-                    variant="ghost"
-                    asChild
-                    className="w-full justify-start"
-                  >
-                    <Link href="/login">Login</Link>
-                  </Button>
+                <div className="flex flex-col items-start space-y-2 pt-4">
                   <Button asChild className="w-full justify-start">
-                    <Link href="/register">Sign Up</Link>
+                    <Link href="/#contact">Contact Us</Link>
                   </Button>
                 </div>
               </div>
