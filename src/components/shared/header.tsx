@@ -21,6 +21,7 @@ export function Header() {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const isScrolled = latest > 50;
@@ -35,6 +36,8 @@ export function Header() {
       setIsHidden(false);
     }
   });
+  
+  const showWhiteBg = scrolled || isHovered;
 
   return (
     <motion.header
@@ -46,10 +49,12 @@ export function Header() {
       animate={isHidden ? 'hidden' : 'visible'}
       transition={{ duration: 0.35, ease: 'easeInOut' }}
       style={{
-        backgroundColor: scrolled ? 'hsl(var(--background))' : 'transparent',
-        borderColor: scrolled ? 'hsl(var(--border))' : 'transparent',
-        color: scrolled ? 'hsl(var(--foreground))' : 'hsl(var(--primary-foreground))',
+        backgroundColor: showWhiteBg ? 'hsl(var(--background))' : 'transparent',
+        borderColor: showWhiteBg ? 'hsl(var(--border))' : 'transparent',
+        color: showWhiteBg ? 'hsl(var(--foreground))' : 'hsl(var(--primary-foreground))',
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="mx-auto flex h-16 max-w-[1280px] items-center px-4 sm:px-6 lg:px-8">
         <div className="mr-auto flex items-center">
@@ -57,7 +62,7 @@ export function Header() {
             <Logo
               className={cn(
                 'h-6 w-6',
-                !scrolled && 'stroke-primary-foreground'
+                !showWhiteBg && 'stroke-primary-foreground'
               )}
             />
             <span className="hidden font-bold sm:inline-block font-headline">
@@ -73,7 +78,7 @@ export function Header() {
               href={link.href}
               className={cn(
                 'transition-colors hover:text-foreground/80',
-                scrolled
+                showWhiteBg
                   ? 'text-foreground/60'
                   : 'text-primary-foreground/80 hover:text-primary-foreground'
               )}
@@ -88,7 +93,7 @@ export function Header() {
             variant="ghost"
             asChild
             className={cn(
-              !scrolled &&
+              !showWhiteBg &&
                 'text-primary-foreground hover:bg-white/10 hover:text-primary-foreground'
             )}
           >
@@ -96,9 +101,9 @@ export function Header() {
           </Button>
           <Button
             asChild
-            variant={scrolled ? 'default' : 'outline'}
+            variant={showWhiteBg ? 'default' : 'outline'}
             className={cn(
-              !scrolled &&
+              !showWhiteBg &&
                 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary'
             )}
           >
@@ -112,7 +117,7 @@ export function Header() {
               variant="ghost"
               className={cn(
                 'px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden',
-                !scrolled &&
+                !showWhiteBg &&
                   'text-primary-foreground hover:bg-white/10 hover:text-primary-foreground'
               )}
             >
