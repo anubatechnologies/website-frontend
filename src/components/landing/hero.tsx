@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { PlayCircle, Play, Pause } from 'lucide-react';
+import { Eye, Pause, Play } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState } from 'react';
 
@@ -64,14 +64,13 @@ export function Hero() {
                 freshness and availability of your products. All with AI.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg">Request a Demo</Button>
                 <Button
                   size="lg"
                   variant="outline"
                   className="bg-transparent text-white border-white hover:bg-white hover:text-black"
                 >
-                  <PlayCircle className="mr-2 h-5 w-5" />
-                  Watch Video
+                  <Eye className="mr-2 h-5 w-5" />
+                  See Franchise Success Stories
                 </Button>
               </div>
             </div>
