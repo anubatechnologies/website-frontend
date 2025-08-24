@@ -29,7 +29,7 @@ export function Features() {
     <section className="py-20 md:py-32">
         <div className="container">
             <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-4xl font-headline font-bold">The Technology Behind Smarter Ordering</h2>
+                <h2 className="text-4xl font-headline font-normal">The Technology Behind Smarter Ordering</h2>
                 <p className="mt-4 text-lg text-muted-foreground">
                     A first-of-its-kind smart ordering and inventory management platform with our proprietary Prediction Engine.
                 </p>

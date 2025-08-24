@@ -35,7 +35,7 @@ export default function FeaturesPage() {
         <section className="py-24 sm:py-32">
           <div className="mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-4xl font-headline font-bold tracking-tight sm:text-6xl">
+              <h1 className="text-4xl font-headline font-normal tracking-tight sm:text-6xl">
                 Powerful Features
               </h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
@@ -49,7 +49,7 @@ export default function FeaturesPage() {
                   className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16"
                 >
                   <div className={`lg:col-start-${index % 2 === 0 ? 1 : 2}`}>
-                    <h2 className="text-3xl font-bold tracking-tight font-headline">
+                    <h2 className="text-3xl font-normal tracking-tight font-headline">
                       {feature.name}
                     </h2>
                     <p className="mt-4 text-muted-foreground">

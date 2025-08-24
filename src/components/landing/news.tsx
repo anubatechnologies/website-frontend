@@ -41,7 +41,7 @@ export function News() {
       <div className="container mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <span className="text-primary font-semibold">Resources</span>
-          <h2 className="text-4xl font-headline font-bold mt-2">Keep up with our latest news and updates</h2>
+          <h2 className="text-4xl font-headline font-normal mt-2">Keep up with our latest news and updates</h2>
         </div>
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -57,7 +57,7 @@ export function News() {
               />
               <div className="p-6">
                 <p className="text-sm text-primary font-semibold">{featuredArticle.category}</p>
-                <h3 className="text-2xl font-headline font-bold mt-2">
+                <h3 className="text-2xl font-headline font-semibold mt-2">
                   <Link href="#" className="hover:underline">{featuredArticle.title}</Link>
                 </h3>
                 <p className="mt-4 text-muted-foreground">{featuredArticle.description}</p>

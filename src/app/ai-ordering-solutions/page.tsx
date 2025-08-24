@@ -7,7 +7,7 @@ export default function AiOrderingSolutionsPage() {
       <Header />
       <main className="flex-grow container py-36 sm:py-48">
         <div className="text-center">
-          <h1 className="text-4xl font-headline font-bold tracking-tight sm:text-6xl">
+          <h1 className="text-4xl font-headline font-normal tracking-tight sm:text-6xl">
             AI Ordering Solutions
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">

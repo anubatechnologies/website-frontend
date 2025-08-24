@@ -26,7 +26,7 @@ export function Benefits() {
             <div className="container">
                 <div className="text-center max-w-3xl mx-auto">
                     <span className="text-primary font-semibold">Franchise-Ready</span>
-                    <h2 className="text-4xl font-headline font-bold mt-2">Grow Sales Without Growing Staff</h2>
+                    <h2 className="text-4xl font-headline font-normal mt-2">Grow Sales Without Growing Staff</h2>
                     <p className="mt-4 text-lg text-muted-foreground">Smart upsells, faster prep.</p>
                 </div>
 
