@@ -68,7 +68,7 @@ export function Hero() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="bg-transparent text-white border-white hover:bg-white hover:text-black"
+                  className="bg-black/20 text-white border-white hover:bg-white hover:text-black"
                 >
                   <Eye className="mr-2 h-5 w-5" />
                   See Franchise Success Stories
