@@ -48,7 +48,7 @@ export function Hero() {
           >
             {/* You can replace this with your own video */}
             <source
-              src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4"
+              src="/hero_bg_video.mp4"
               type="video/mp4"
             />
           </video>
