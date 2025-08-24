@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent, useAnimationControls } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -20,12 +20,19 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
+  const controls = useAnimationControls();
 
-  useMotionValueEvent(scrollY, 'change', latest => {
+  useMotionValueEvent(scrollY, 'change', (latest) => {
     if (latest > 50) {
       setScrolled(true);
     } else {
       setScrolled(false);
+    }
+    const isScrollingDown = scrollY.getPrevious() < latest && latest > 150;
+    if (isScrollingDown) {
+      controls.start('hidden');
+    } else {
+      controls.start('visible');
     }
   });
 
@@ -33,8 +40,10 @@ export function Header() {
     <motion.header
       className="fixed top-0 z-50 w-full"
       initial={{ top: '1rem' }}
-      animate={{
-        top: scrolled ? '0.5rem' : '1rem',
+      animate={controls}
+      variants={{
+        visible: { y: 0, top: scrolled ? '0.5rem' : '1rem' },
+        hidden: { y: '-200%' },
       }}
       transition={{ duration: 0.3 }}
     >
@@ -95,7 +104,10 @@ export function Header() {
             </Button>
             <Button asChild
              variant={scrolled ? 'default' : 'outline'}
-             className={cn(!scrolled && 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-black')}
+             className={cn(
+               !scrolled && 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-black',
+               scrolled && 'text-primary-foreground hover:bg-primary/90'
+             )}
             >
               <Link href="/register">Sign Up</Link>
             </Button>
