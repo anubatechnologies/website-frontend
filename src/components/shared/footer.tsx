@@ -26,10 +26,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center space-x-2">
-              <Logo className="h-8 w-8" />
-              <span className="font-bold text-lg font-headline">
-                Anuba Technologies
-              </span>
+              <Logo className="h-10 w-auto" />
             </Link>
             <p className="mt-4 text-muted-foreground">
               The AI-powered platform for smarter inventory management.

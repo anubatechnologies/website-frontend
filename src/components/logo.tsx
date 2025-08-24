@@ -5,7 +5,7 @@ export function Logo({ className }: { className?: string }) {
     <Image
       src="/images/logo.png"
       alt="Anuba Technologies Logo"
-      width={32}
+      width={140}
       height={32}
       className={className}
     />

@@ -63,14 +63,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Logo
-              className={cn(
-                'h-6 w-6',
-              )}
-            />
-            <span className="hidden font-bold sm:inline-block font-headline">
-              Anuba Technologies
-            </span>
+            <Logo className="h-8 w-auto" />
           </Link>
         </div>
 
@@ -104,7 +97,7 @@ export function Header() {
               className={cn(
                 'px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden',
                 !showWhiteBg &&
-                  'text-primary-foreground hover:bg-white/10 hover:text-primary-foreground'
+                  'text-primary-foreground hover:bg/10 hover:text-primary-foreground'
               )}
             >
               <Menu className="h-6 w-6" />
@@ -117,8 +110,7 @@ export function Header() {
               className="flex items-center"
               onClick={() => setIsOpen(false)}
             >
-              <Logo className="mr-2 h-4 w-4" />
-              <span className="font-bold font-headline">Anuba Technologies</span>
+              <Logo className="h-8 w-auto" />
             </Link>
             <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
               <div className="flex flex-col space-y-3">
