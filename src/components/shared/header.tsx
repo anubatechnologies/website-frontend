@@ -22,7 +22,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useMotionValueEvent(scrollY, 'change', latest => {
-    // A threshold of 50px to start the animation
     if (latest > 50) {
       setScrolled(true);
     } else {
@@ -96,7 +95,7 @@ export function Header() {
             </Button>
             <Button asChild
              variant={scrolled ? 'default' : 'outline'}
-             className={cn(!scrolled && 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary')}
+             className={cn(!scrolled && 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-black')}
             >
               <Link href="/register">Sign Up</Link>
             </Button>
