@@ -14,7 +14,7 @@ export function Hero() {
 
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
   const borderRadius = useTransform(scrollYProgress, [0, 0.5], ['0px', '24px']);
-  const y = useTransform(scrollYProgress, [0, 0.5], ['0%', '2%']);
+  const y = useTransform(scrollYProgress, [0, 0.5], ['0%', '2.5%']);
 
   return (
     <section ref={targetRef} className="h-[200vh] relative">
