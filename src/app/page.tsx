@@ -15,9 +15,11 @@ export default function Home() {
         <Hero />
         <div className="mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
           <Features />
-          <VideoSection />
           <Benefits />
-          <News />
+        </div>
+        <VideoSection />
+        <News />
+        <div className="mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
           <Cta />
         </div>
       </main>

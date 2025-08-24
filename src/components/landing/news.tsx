@@ -38,7 +38,7 @@ const otherArticles = [
 export function News() {
   return (
     <section id="news" className="py-20 md:py-32 bg-secondary/50">
-      <div className="container">
+      <div className="container mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <span className="text-primary font-semibold">Resources</span>
           <h2 className="text-4xl font-headline font-bold mt-2">Keep up with our latest news and updates</h2>
