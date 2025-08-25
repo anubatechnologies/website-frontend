@@ -1,9 +1,15 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Eye, Pause, Play } from 'lucide-react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { Eye, Pause, Play } from "lucide-react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import { useRef, useState } from "react";
+import { InteractiveHoverButton } from "../magicui/interactive-hover-button";
 
 export function Hero() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -13,11 +19,11 @@ export function Hero() {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['start start', 'end start'],
+    offset: ["start start", "end start"],
   });
 
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
-  const borderRadius = useTransform(scrollYProgress, [0, 0.5], ['0px', '24px']);
+  const borderRadius = useTransform(scrollYProgress, [0, 0.5], ["0px", "24px"]);
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -48,10 +54,7 @@ export function Hero() {
             data-ai-hint="abstract background"
           >
             {/* You can replace this with your own video */}
-            <source
-              src="/videos/hero_bg_video.mp4"
-              type="video/mp4"
-            />
+            <source src="/videos/hero_bg_video.mp4" type="video/mp4" />
           </video>
           <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
           <div className="relative container px-4 sm:px-6 lg:px-8 z-20 flex flex-col items-start justify-center h-full text-left text-white">
@@ -65,14 +68,9 @@ export function Hero() {
                 freshness and availability of your products. All with AI.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="bg-black/20 text-white border-white hover:bg-white hover:text-black"
-                >
-                  <Eye className="mr-2 h-5 w-5" />
+                <InteractiveHoverButton className="font-sm text-black">
                   See Franchise Success Stories
-                </Button>
+                </InteractiveHoverButton>
               </div>
             </div>
           </div>
@@ -86,12 +84,12 @@ export function Hero() {
                 {isHovered && (
                   <motion.span
                     initial={{ opacity: 0, width: 0 }}
-                    animate={{ opacity: 1, width: 'auto' }}
+                    animate={{ opacity: 1, width: "auto" }}
                     exit={{ opacity: 0, width: 0 }}
                     transition={{ duration: 0.2 }}
                     className="text-white text-sm"
                   >
-                    {isPlaying ? 'Pause' : 'Play'}
+                    {isPlaying ? "Pause" : "Play"}
                   </motion.span>
                 )}
               </AnimatePresence>
@@ -106,7 +104,7 @@ export function Hero() {
                   <Play className="h-4 w-4" fill="currentColor" />
                 )}
                 <span className="sr-only">
-                  {isPlaying ? 'Pause video' : 'Play video'}
+                  {isPlaying ? "Pause video" : "Play video"}
                 </span>
               </Button>
             </div>

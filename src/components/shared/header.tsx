@@ -1,21 +1,22 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Menu } from 'lucide-react';
-import { useState } from 'react';
-import { Logo } from '@/components/logo';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { Menu } from "lucide-react";
+import { useState } from "react";
+import { Logo } from "@/components/logo";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { ShimmerButton } from "../magicui/shimmer-button";
 
 const navLinks = [
-  { href: '/why-anuba', label: 'Why Anuba' },
-  { href: '/ai-ordering-solutions', label: 'AI Ordering Solutions' },
-  { href: '/problems-we-solve', label: 'Problems We Solve' },
-  { href: '/resources', label: 'Resources' },
-  { href: '/company', label: 'Company' },
+  { href: "/why-anuba", label: "Why Anuba" },
+  { href: "/ai-ordering-solutions", label: "AI Ordering Solutions" },
+  { href: "/problems-we-solve", label: "Problems We Solve" },
+  { href: "/resources", label: "Resources" },
+  { href: "/company", label: "Company" },
 ];
 
 export function Header() {
@@ -25,9 +26,9 @@ export function Header() {
   const [isHidden, setIsHidden] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  const isHomePage = pathname === "/";
 
-  useMotionValueEvent(scrollY, 'change', (latest) => {
+  useMotionValueEvent(scrollY, "change", (latest) => {
     const isScrolled = latest > 50;
     if (isScrolled !== scrolled) {
       setScrolled(isScrolled);
@@ -40,7 +41,7 @@ export function Header() {
       setIsHidden(false);
     }
   });
-  
+
   const showWhiteBg = !isHomePage || scrolled || isHovered;
 
   return (
@@ -48,14 +49,16 @@ export function Header() {
       className="fixed top-0 z-50 w-full transition-colors duration-300"
       variants={{
         visible: { y: 0 },
-        hidden: { y: '-100%' },
+        hidden: { y: "-100%" },
       }}
-      animate={isHidden ? 'hidden' : 'visible'}
-      transition={{ duration: 0.35, ease: 'easeInOut' }}
+      animate={isHidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
       style={{
-        backgroundColor: showWhiteBg ? 'hsl(var(--background))' : 'transparent',
-        borderColor: showWhiteBg ? 'hsl(var(--border))' : 'transparent',
-        color: showWhiteBg ? 'hsl(var(--foreground))' : 'hsl(var(--primary-foreground))',
+        backgroundColor: showWhiteBg ? "hsl(var(--background))" : "transparent",
+        borderColor: showWhiteBg ? "hsl(var(--border))" : "transparent",
+        color: showWhiteBg
+          ? "hsl(var(--foreground))"
+          : "hsl(var(--primary-foreground))",
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -73,10 +76,10 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                'transition-colors hover:text-foreground/80',
+                "transition-colors hover:text-foreground/80",
                 showWhiteBg
-                  ? 'text-foreground/60'
-                  : 'text-primary-foreground/80 hover:text-primary-foreground'
+                  ? "text-foreground/60"
+                  : "text-primary-foreground/90 hover:text-primary-foreground"
               )}
             >
               {link.label}
@@ -85,9 +88,17 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center justify-end space-x-2">
-          <Button asChild>
+          <Link href="/#contact">
+            <ShimmerButton className="py-2.5" background="#F1573B">
+              <span className="whitespace-pre-wrap text-center !text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 ">
+                Contact Us
+              </span>
+            </ShimmerButton>
+          </Link>
+
+          {/* <Button asChild>
             <Link href="/#contact">Contact Us</Link>
-          </Button>
+          </Button> */}
         </div>
 
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -95,9 +106,9 @@ export function Header() {
             <Button
               variant="ghost"
               className={cn(
-                'px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden',
+                "px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden",
                 !showWhiteBg &&
-                  'text-primary-foreground hover:bg/10 hover:text-primary-foreground'
+                  "text-primary-foreground hover:bg/10 hover:text-primary-foreground"
               )}
             >
               <Menu className="h-6 w-6" />
@@ -125,9 +136,10 @@ export function Header() {
                   </Link>
                 ))}
                 <div className="flex flex-col items-start space-y-2 pt-4">
-                  <Button asChild className="w-full justify-start">
+                  <ShimmerButton>Contact Us</ShimmerButton>
+                  {/* <Button asChild className="w-full justify-start">
                     <Link href="/#contact">Contact Us</Link>
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             </div>
