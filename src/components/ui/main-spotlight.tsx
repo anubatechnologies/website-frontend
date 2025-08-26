@@ -1,3 +1,4 @@
+
 "use client";
 import { cn } from "@/lib/utils";
 import { Canvas } from "@react-three/fiber";
@@ -190,38 +191,6 @@ const ShaderSpotlight = ({
 }) => {
   return (
     <div className="absolute inset-0 pointer-events-none z-50 rounded-full overflow-hidden">
-      <Canvas className="w-full h-full">
-        <mesh>
-          <planeGeometry args={[2, 2]} />
-          <shaderMaterial
-            uniforms={{
-              u_time: { value: 0 },
-              u_mouse: { value: new THREE.Vector2(mouseX, mouseY) },
-              u_size: { value: size },
-            }}
-            fragmentShader={`
-              precision mediump float;
-              uniform vec2 u_mouse;
-              uniform float u_time;
-              uniform float u_size;
-              varying vec2 vUv;
-
-              float random(vec2 st) {
-                return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
-              }
-
-              void main() {
-                vec2 st = gl_FragCoord.xy;
-                float dist = distance(st, u_mouse);
-                float dots = step(0.5, random(floor(st / 5.0)));
-                float opacity = smoothstep(u_size, 0.0, dist) * dots * 0.2;
-                gl_FragColor = vec4(0.945, 0.341, 0.231, opacity); // #F1573B
-              }
-            `}
-            transparent
-          />
-        </mesh>
-      </Canvas>
     </div>
   );
 };
