@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useRef, useState } from "react";
@@ -15,7 +16,7 @@ export function VideoSection() {
     offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
+  const scaleX = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
   const rotateX = useTransform(scrollYProgress, [0, 0.5], ["45deg", "0deg"]);
 
   const handlePlay = () => {
@@ -26,13 +27,13 @@ export function VideoSection() {
   };
 
   return (
-    <motion.section
+    <section
       ref={sectionRef}
-      className="py-20 md:py-32"
+      className="py-20 md:py-32 overflow-x-clip"
     >
       <motion.div
-        className="bg-[#101E2D]"
-        style={{ scale }}
+        className="bg-[#101E2D] mx-auto"
+        style={{ scaleX }}
       >
         <div className="container text-center mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <span className="text-primary font-semibold">
@@ -71,6 +72,6 @@ export function VideoSection() {
           </Button>
         </div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 }
