@@ -13,11 +13,11 @@ export function VideoSection() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "start center"],
   });
 
-  const scaleX = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]);
-  const rotateX = useTransform(scrollYProgress, [0, 0.5], ["45deg", "0deg"]);
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+  const rotateX = useTransform(scrollYProgress, [0, 1], ["45deg", "0deg"]);
 
   const handlePlay = () => {
     if (videoRef.current) {
