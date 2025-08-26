@@ -66,7 +66,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Logo className="h-8 w-auto" />
+            <Logo className="h-10 w-auto" />
           </Link>
         </div>
 
