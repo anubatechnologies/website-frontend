@@ -43,7 +43,7 @@ export function VideoSection() {
   return (
     <section
       ref={sectionRef}
-      className="my-20 md:my-32 overflow-x-clip relative overflow-hidden"
+      className="my-16 md:my-20 overflow-x-clip relative overflow-hidden"
     >
       <div
         className={cn(

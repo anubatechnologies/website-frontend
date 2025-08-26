@@ -98,7 +98,10 @@ export function SpotLightItem({ children, className }: SpotlightItemProps) {
       onMouseEnter={() => CursorFlowGradient && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       ref={boxWrapper}
-      className={cn(className, " relative rounded-sm p-[2px] overflow-hidden")}
+      className={cn(
+        className,
+        " relative  rounded-sm p-[2px]  overflow-hidden"
+      )}
     >
       {isHovered && (
         <div
@@ -114,12 +117,24 @@ export function SpotLightItem({ children, className }: SpotlightItemProps) {
           }}
         />
       )}
-
+      {isHovered && (
+        <React.Suspense fallback={null}>
+          <CanvasRevealEffect
+            animationSpeed={5}
+            containerClassName="bg-transparent absolute inset-0  z-50 w-full h-full pointer-events-none"
+            colors={[
+              [241, 87, 59], // base orange (#F1573B)
+              [241, 87, 59], // same orange for gradient/softness
+            ]}
+            dotSize={3}
+          />
+        </React.Suspense>
+      )}
       {HoverFocusSpotlight && (
         <div
           className="absolute opacity-0 group-hover:opacity-100 z-10 inset-0 bg-fixed rounded-sm"
           style={{
-            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(241, 87, 59, 0.30) 0%, transparent 20%, transparent) fixed`,
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(241, 87, 59, 0.20) 0%, transparent 20%, transparent) fixed`,
           }}
         ></div>
       )}
@@ -128,7 +143,7 @@ export function SpotLightItem({ children, className }: SpotlightItemProps) {
         <div
           className="absolute inset-0 z-0 bg-fixed rounded-sm"
           style={{
-            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(241, 87, 59, 0.30) 0%, transparent 20%, transparent) fixed`,
+            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(241, 87, 59, 0.20) 0%, transparent 20%, transparent) fixed`,
           }}
         ></div>
       )}

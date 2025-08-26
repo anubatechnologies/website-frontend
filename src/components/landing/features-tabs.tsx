@@ -17,7 +17,7 @@ export function FeaturesTabs() {
   ];
 
   return (
-    <div className="h-[30rem] md:h-[50rem] [perspective:1000px] relative b flex flex-col mx-auto   items-start justify-start my-0">
+    <div className="h-[25rem] md:h-[45rem] [perspective:1000px] relative b flex flex-col mx-auto   items-start justify-start my-0">
       <Tabs tabs={tabs} />
     </div>
   );

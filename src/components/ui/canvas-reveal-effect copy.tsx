@@ -6,7 +6,7 @@ import * as THREE from "three";
 
 export const CanvasRevealEffect = ({
   animationSpeed = 0.4,
-  opacities = [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1],
+  opacities = [0, 0, 0, 0.1, 0, 0.1, 0.1, 0, 0.1, 0.35],
   colors = [[0, 255, 255]],
   containerClassName,
   dotSize,
@@ -42,7 +42,7 @@ export const CanvasRevealEffect = ({
         />
       </div>
       {showGradient && (
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-[84%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-0 to-[84%]" />
       )}
     </div>
   );
