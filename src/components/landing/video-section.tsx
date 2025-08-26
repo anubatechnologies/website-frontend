@@ -16,7 +16,7 @@ export function VideoSection() {
     offset: ["start end", "end start"],
   });
 
-  const padding = useTransform(scrollYProgress, [0, 0.5], [40, 0]);
+  const scaleX = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]);
   const rotateX = useTransform(scrollYProgress, [0, 0.5], ["45deg", "0deg"]);
 
   const handlePlay = () => {
@@ -33,7 +33,7 @@ export function VideoSection() {
     >
       <motion.div
         className="bg-[#101E2D]"
-        style={{ paddingLeft: padding, paddingRight: padding }}
+        style={{ scaleX }}
       >
         <div className="container text-center mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <span className="text-primary font-semibold">
