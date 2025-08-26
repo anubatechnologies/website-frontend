@@ -33,14 +33,14 @@ export function VideoSection() {
       style={{ opacity }}
     >
       <motion.div
-        className="bg-secondary/50"
+        className="bg-[#101E2D]"
         style={{ scale }}
       >
         <div className="container text-center mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <span className="text-primary font-semibold">
             40% Less Spend on Drive Thru
           </span>
-          <h2 className="text-3xl sm:text-4xl font-headline font-normal mt-2">
+          <h2 className="text-3xl sm:text-4xl font-headline font-normal mt-2 text-primary-foreground">
             Turning Drive-Thru Data Into Smart Next Order Predictions
           </h2>
           <div className="mt-8" style={{ perspective: "1000px" }}>
