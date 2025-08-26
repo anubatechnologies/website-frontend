@@ -27,6 +27,7 @@ export function VideoSection() {
 
   const scaleX = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
   const rotateX = useTransform(scrollYProgress, [0, 1], ["45deg", "0deg"]);
+  const borderRadius = useTransform(scrollYProgress, [0, 1], ["24px", "0px"]);
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -53,8 +54,11 @@ export function VideoSection() {
         )}
       />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center  [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
-      <motion.div className="bg-[#101E2D] z-1000 " style={{ scaleX }}>
-        <div className="container flex flex-col justify-center text-center mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <motion.div
+        className="bg-[#101E2D] z-1000 "
+        style={{ scaleX, borderRadius }}
+      >
+        <div className="container flex flex-col justify-center text-center mx-auto max-w-[1058px] px-0 sm:px-6 lg:px-8 py-20 md:py-32">
           <span className="text-white font-headline font-semibold w-fit flex items-center mx-auto gap-2 mb-4">
             <Sparkles size="20px" />
             <SparklesText className="text-base font-light">
@@ -75,9 +79,6 @@ export function VideoSection() {
                   className="w-full h-full rounded-xl object-cover"
                   poster="https://picsum.photos/1200/600"
                   data-ai-hint="dashboard analytics"
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  onEnded={() => setIsPlaying(false)}
                   playsInline
                   autoPlay
                   muted
