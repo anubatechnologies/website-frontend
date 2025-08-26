@@ -7,7 +7,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import { PlayCircle, Play, Pause, Sparkles } from "lucide-react";
+import { Play, Pause, Sparkles } from "lucide-react";
 import { Button } from "../ui/button";
 import { SparklesText } from "../magicui/spark-text";
 import { ShimmerButton } from "../magicui/shimmer-button";
@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 export function VideoSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -27,13 +27,6 @@ export function VideoSection() {
 
   const scaleX = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
   const rotateX = useTransform(scrollYProgress, [0, 1], ["45deg", "0deg"]);
-
-  const handlePlay = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    }
-  };
 
   const togglePlay = () => {
     if (videoRef.current) {
@@ -86,55 +79,48 @@ export function VideoSection() {
                   onPause={() => setIsPlaying(false)}
                   onEnded={() => setIsPlaying(false)}
                   playsInline
+                  autoPlay
+                  muted
+                  loop
                 >
                   <source src="/videos/hero_bg_video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                {!isPlaying && (
-                  <div
-                    className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-xl cursor-pointer"
-                    onClick={handlePlay}
-                  >
-                    <PlayCircle className="h-20 w-20 text-white/80 hover:text-white transition-colors" />
+                <div
+                  className="absolute bottom-4 right-4 z-20"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <div className="flex items-center gap-2">
+                    <AnimatePresence>
+                      {isHovered && (
+                        <motion.span
+                          initial={{ opacity: 0, width: 0 }}
+                          animate={{ opacity: 1, width: "auto" }}
+                          exit={{ opacity: 0, width: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="text-white text-sm"
+                        >
+                          {isPlaying ? "Pause" : "Play"}
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                    <Button
+                      size="icon"
+                      onClick={togglePlay}
+                      className="bg-white/80 hover:bg-white text-black rounded-full w-[30px] h-[30px]"
+                    >
+                      {isPlaying ? (
+                        <Pause className="h-4 w-4" fill="currentColor" />
+                      ) : (
+                        <Play className="h-4 w-4" fill="currentColor" />
+                      )}
+                      <span className="sr-only">
+                        {isPlaying ? "Pause video" : "Play video"}
+                      </span>
+                    </Button>
                   </div>
-                )}
-                {isPlaying && (
-                  <div
-                    className="absolute bottom-4 right-4 z-20"
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                  >
-                    <div className="flex items-center gap-2">
-                      <AnimatePresence>
-                        {isHovered && (
-                          <motion.span
-                            initial={{ opacity: 0, width: 0 }}
-                            animate={{ opacity: 1, width: "auto" }}
-                            exit={{ opacity: 0, width: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="text-white text-sm"
-                          >
-                            {isPlaying ? "Pause" : "Play"}
-                          </motion.span>
-                        )}
-                      </AnimatePresence>
-                      <Button
-                        size="icon"
-                        onClick={togglePlay}
-                        className="bg-white/80 hover:bg-white text-black rounded-full w-[30px] h-[30px]"
-                      >
-                        {isPlaying ? (
-                          <Pause className="h-4 w-4" fill="currentColor" />
-                        ) : (
-                          <Play className="h-4 w-4" fill="currentColor" />
-                        )}
-                        <span className="sr-only">
-                          {isPlaying ? "Pause video" : "Play video"}
-                        </span>
-                      </Button>
-                    </div>
-                  </div>
-                )}
+                </div>
               </div>
             </motion.div>
           </div>
