@@ -17,7 +17,6 @@ export function VideoSection() {
 
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
   const rotateX = useTransform(scrollYProgress, [0, 0.5], ["45deg", "0deg"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
 
   const handlePlay = () => {
     if (videoRef.current) {
@@ -30,7 +29,6 @@ export function VideoSection() {
     <motion.section
       ref={sectionRef}
       className="py-20 md:py-32"
-      style={{ opacity }}
     >
       <motion.div
         className="bg-[#101E2D]"
