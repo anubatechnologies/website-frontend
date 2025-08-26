@@ -1,32 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Clock, Cpu, ShoppingCart } from "lucide-react";
-import { TabsDemo } from "./features-tabs";
-const featuresData = [
-  {
-    icon: <ShoppingCart className="h-8 w-8 text-primary" />,
-    title: "Real-time Demand Forecasting",
-    description:
-      "Accurately predict what you'll need and when you'll need it with 95% accuracy.",
-  },
-  {
-    icon: <BarChart className="h-8 w-8 text-primary" />,
-    title: "Automated Inventory Analysis",
-    description:
-      "Our system continuously monitors your stock levels and suggests optimal reorder points.",
-  },
-  {
-    icon: <Clock className="h-8 w-8 text-primary" />,
-    title: "Reduces Food Prep Time by 15%",
-    description:
-      "Optimize your kitchen workflow with smarter prep schedules based on predicted demand.",
-  },
-  {
-    icon: <Cpu className="h-8 w-8 text-primary" />,
-    title: "Cutting-edge Prediction Engine",
-    description:
-      "Powered by the latest in machine learning to adapt to your unique business patterns.",
-  },
-];
+import { FeaturesTabs } from "./features-tabs";
 
 export function Features() {
   return (
@@ -41,7 +15,7 @@ export function Features() {
             with our proprietary Prediction Engine.
           </p>
           <div className="mt-12">
-            <TabsDemo />
+            <FeaturesTabs />
           </div>
         </div>
       </div>

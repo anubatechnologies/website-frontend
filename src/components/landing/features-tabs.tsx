@@ -1,22 +1,23 @@
 import { Tabs } from "../ui/tabs";
-import { BentoDemo } from "./features-bento";
+import { BentoVRI } from "./features-bento-vri";
+import { BentoOPE } from "./features-bento-ope";
 
-export function TabsDemo() {
+export function FeaturesTabs() {
   const tabs = [
     {
       title: "Vehicle Recognition & Intelligence",
       value: "1",
-      content: <BentoDemo />,
+      content: <BentoVRI />,
     },
     {
       title: "Order Prediction Engine",
       value: "2",
-      content: <BentoDemo />,
+      content: <BentoOPE />,
     },
   ];
 
   return (
-    <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col mx-auto   items-start justify-start my-0">
+    <div className="h-[30rem] md:h-[50rem] [perspective:1000px] relative b flex flex-col mx-auto   items-start justify-start my-0">
       <Tabs tabs={tabs} />
     </div>
   );

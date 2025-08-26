@@ -8,13 +8,14 @@ import {
 
 import { Share2Icon } from "lucide-react";
 import { BentoCard, BentoGrid } from "../magicui/bento-grid";
+import { Spotlight, SpotLightItem } from "../ui/main-spotlight";
 
 const features = [
   {
     Icon: BellIcon,
-    name: "Real-Time Vehicle Detection",
+    name: "AI-Powered Order Forecasting",
     description:
-      "Instantly detect and count vehicles entering your drive-thru lanes with 99.5% accuracy.",
+      "Predict likely orders based on customer patterns, weather, and historical data.",
     href: "#",
     cta: "Learn more",
     className: "col-span-5 lg:col-span-3",
@@ -30,9 +31,9 @@ const features = [
   },
   {
     Icon: FileTextIcon,
-    name: "Customer Pattern Analytics",
+    name: "Customer Profile Matching",
     description:
-      "Analyze customer behavior patterns to predict peak times and optimize staffing.",
+      "Match returning customers to their preference patterns for personalized service.",
     href: "#",
     cta: "Learn more",
     className: "col-span-5 lg:col-span-2",
@@ -73,9 +74,9 @@ const features = [
 
   {
     Icon: CalendarIcon,
-    name: "Traffic Flow Optimization",
+    name: "Historical Order Analysis",
     description:
-      "Optimize lane usage and reduce bottlenecks with real-time traffic management.",
+      "Leverage comprehensive order history to improve prediction accuracy over time.",
     className: "col-span-5 lg:col-span-2",
     href: "#",
     cta: "Learn more",
@@ -95,9 +96,9 @@ const features = [
   },
   {
     Icon: Share2Icon,
-    name: "Queue Length Prediction",
+    name: "Seasonal Demand Modeling",
     description:
-      "Predict and prevent long queues before they impact customer satisfaction.",
+      "Adjust predictions for seasonal trends, promotions, and special events.",
     href: "#",
     cta: "Learn more",
     className: "col-span-5 lg:col-span-3",
@@ -113,12 +114,16 @@ const features = [
   },
 ];
 
-export function BentoDemo() {
+export function BentoOPE() {
   return (
-    <BentoGrid className="lg:grid-rows-2 !bg-white">
-      {features.map((feature) => (
-        <BentoCard key={feature.name} {...feature} />
-      ))}
-    </BentoGrid>
+    <Spotlight className="relative sm:p-8 p-4 rounded-md !bg-white">
+      <BentoGrid className="lg:grid-rows-2 !bg-white">
+        {features.map((feature) => (
+          <SpotLightItem key={feature.name} className={feature.className}>
+            <BentoCard key={feature.name} {...feature} />
+          </SpotLightItem>
+        ))}
+      </BentoGrid>
+    </Spotlight>
   );
 }

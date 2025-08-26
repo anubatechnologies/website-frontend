@@ -70,13 +70,19 @@ export const Tabs = ({
 
             <span
               className={cn(
-                "relative text-[15px] block transition-colors duration-300 ease-in-out",
+                "relative text-[15px] font-medium gap-2 transition-colors duration-300 ease-in-out flex items-center",
                 {
                   "text-white": active.value === tab.value,
-                  "text-black dark:text-white": active.value !== tab.value,
+                  "text-foreground dark:text-white": active.value !== tab.value,
                 }
               )}
             >
+              <div
+                className={cn("size-[12px] bg-white rounded-sm", {
+                  "bg-white": active.value === tab.value,
+                  "bg-foreground": active.value !== tab.value,
+                })}
+              ></div>
               {tab.title}
             </span>
           </button>
