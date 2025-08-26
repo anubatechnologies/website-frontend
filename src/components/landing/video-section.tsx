@@ -1,14 +1,24 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { PlayCircle } from "lucide-react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import { PlayCircle, Play, Pause, Sparkles } from "lucide-react";
 import { Button } from "../ui/button";
-import { Sparkles } from "lucide-react";
+import { SparklesText } from "../magicui/spark-text";
+import { ShimmerButton } from "../magicui/shimmer-button";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+
 export function VideoSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -25,6 +35,17 @@ export function VideoSection() {
     }
   };
 
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -38,7 +59,6 @@ export function VideoSection() {
           "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
         )}
       />
-      {/* Radial gradient for the container to give a faded look */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center  [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
       <motion.div className="bg-[#101E2D] z-1000 " style={{ scaleX }}>
         <div className="container flex flex-col justify-center text-center mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8 py-20 md:py-32">
@@ -56,24 +76,66 @@ export function VideoSection() {
               style={{ rotateX, transformStyle: "preserve-3d" }}
               className="relative rounded-xl shadow-xl mx-auto w-full max-w-[1058px]"
             >
-              <video
-                ref={videoRef}
-                className="w-full h-full rounded-xl"
-                poster="https://picsum.photos/1200/600"
-                data-ai-hint="dashboard analytics"
-                onEnded={() => setIsPlaying(false)}
-              >
-                <source src="/videos/hero_bg_video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              {!isPlaying && (
-                <div
-                  className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-xl cursor-pointer"
-                  onClick={handlePlay}
+              <div className="relative w-full aspect-video">
+                <video
+                  ref={videoRef}
+                  className="w-full h-full rounded-xl object-cover"
+                  poster="https://picsum.photos/1200/600"
+                  data-ai-hint="dashboard analytics"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                  playsInline
                 >
-                  <PlayCircle className="h-20 w-20 text-white/80 hover:text-white transition-colors" />
-                </div>
-              )}
+                  <source src="/videos/hero_bg_video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                {!isPlaying && (
+                  <div
+                    className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-xl cursor-pointer"
+                    onClick={handlePlay}
+                  >
+                    <PlayCircle className="h-20 w-20 text-white/80 hover:text-white transition-colors" />
+                  </div>
+                )}
+                {isPlaying && (
+                  <div
+                    className="absolute bottom-4 right-4 z-20"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                  >
+                    <div className="flex items-center gap-2">
+                      <AnimatePresence>
+                        {isHovered && (
+                          <motion.span
+                            initial={{ opacity: 0, width: 0 }}
+                            animate={{ opacity: 1, width: "auto" }}
+                            exit={{ opacity: 0, width: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="text-white text-sm"
+                          >
+                            {isPlaying ? "Pause" : "Play"}
+                          </motion.span>
+                        )}
+                      </AnimatePresence>
+                      <Button
+                        size="icon"
+                        onClick={togglePlay}
+                        className="bg-white/80 hover:bg-white text-black rounded-full w-[30px] h-[30px]"
+                      >
+                        {isPlaying ? (
+                          <Pause className="h-4 w-4" fill="currentColor" />
+                        ) : (
+                          <Play className="h-4 w-4" fill="currentColor" />
+                        )}
+                        <span className="sr-only">
+                          {isPlaying ? "Pause video" : "Play video"}
+                        </span>
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </motion.div>
           </div>
           <Link href="/#contact" className="mx-auto mt-10">
@@ -86,28 +148,5 @@ export function VideoSection() {
         </div>
       </motion.div>
     </section>
-  );
-}
-import { cn } from "@/lib/utils";
-import React from "react";
-import { SparklesText } from "../magicui/spark-text";
-import { ShimmerButton } from "../magicui/shimmer-button";
-import Link from "next/link";
-
-export function GridBackgroundDemo({ children }) {
-  return (
-    <div className="relative flex h-[50rem] w-full items-center justify-center bg-white dark:bg-black">
-      <div
-        className={cn(
-          "absolute inset-0",
-          "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
-        )}
-      />
-      {/* Radial gradient for the container to give a faded look */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
-      {children}
-    </div>
   );
 }
