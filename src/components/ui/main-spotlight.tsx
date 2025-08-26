@@ -1,4 +1,3 @@
-
 "use client";
 import { cn } from "@/lib/utils";
 import React, {
@@ -8,17 +7,7 @@ import React, {
   useContext,
   createContext,
 } from "react";
-import dynamic from "next/dynamic";
-
-const CanvasRevealEffect = dynamic(
-  () =>
-    import("@/components/ui/canvas-reveal-effect-client").then(
-      (mod) => mod.CanvasRevealEffectClient
-    ),
-  {
-    ssr: false,
-  }
-);
+import { CanvasRevealEffect } from "./canvas-reveal-effect-client";
 
 interface MousePosition {
   x: number;
@@ -102,8 +91,6 @@ export function SpotLightItem({ children, className }: SpotlightItemProps) {
 
     setOverlayColor({ x, y });
   };
-  // console.log(overlayColor)
-
   return (
     <div
       onMouseMove={handleMouemove}
@@ -134,8 +121,8 @@ export function SpotLightItem({ children, className }: SpotlightItemProps) {
           animationSpeed={5}
           containerClassName="bg-transparent absolute inset-0  z-50 w-full h-full pointer-events-none"
           colors={[
-            [241, 87, 59], // base orange (#F1573B)
-            [241, 87, 59], // same orange for gradient/softness
+            [241, 87, 59],
+            [241, 87, 59],
           ]}
           dotSize={3}
         />
@@ -199,7 +186,6 @@ const ShaderSpotlight = ({
   size?: number;
 }) => {
   return (
-    <div className="absolute inset-0 pointer-events-none z-50 rounded-full overflow-hidden">
-    </div>
+    <div className="absolute inset-0 pointer-events-none z-50 rounded-full overflow-hidden"></div>
   );
 };
