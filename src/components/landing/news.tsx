@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, ArrowUpRight } from "lucide-react";
 import { AnimatedShinyText } from "../magicui/animated-shiny-text";
+import { ShimmerButton } from "../magicui/shimmer-button";
 
 const articles = [
   {
@@ -47,7 +48,7 @@ export function News() {
   return (
     <section id="news" className="py-20 md:py-32 bg-[#101E2D] text-white">
       <div className="container mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
-        <div className="text-left max-w-3x ">
+        <div className="text-left max-w-3x relative">
           <div className="flex items-center justify-start gap-2">
             <div className="w-[10px] h-[16px] bg-primary rounded-lg"></div>
             <span className="leading-0 font-semibold text-base">Resources</span>
@@ -55,6 +56,10 @@ export function News() {
           <h2 className="text-3xl sm:text-4xl font-headline font-normal mt-2 text-white">
             Keep up with our latest news and updates
           </h2>
+          <ArrowUpRight
+            className="absolute top-0 right-0 opacity-40 hover:opacity-95 cursor-pointer"
+            size="60px"
+          />
         </div>
 
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
@@ -117,17 +122,6 @@ export function News() {
               </Link>
             ))}
           </div>
-        </div>
-
-        <div className="mt-16 text-center">
-          <Button
-            size="lg"
-            variant="outline"
-            className="text-white border-neutral-700 hover:bg-neutral-800 hover:text-white"
-          >
-            View all resources
-            <ArrowUpRight className="h-4 w-4 ml-2" />
-          </Button>
         </div>
       </div>
     </section>
