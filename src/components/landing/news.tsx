@@ -29,8 +29,8 @@ const articles = [
     description:
       "We've rolled out new tools for managing inventory across multiple locations.",
     image:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzI0NjAzMDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    hint: "business meeting",
+      "https://images.unsplash.com/photo-1572449043477-65d421157154?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtYXAlMjBpbnRlcmZhY2V8ZW58MHx8fHwxNzU2MzA4ODA5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    hint: "map interface",
   },
   {
     category: "Case Study",
