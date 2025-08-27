@@ -16,11 +16,10 @@ const stepsData = [
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
-        <path d="M18 9h2a2 2 0 0 1 2 2v4l-3-3v-3" />
-        <path d="M7 11v-1a2 2 0 0 1 2-2h2" />
-        <path d="m22 22-5-5" />
-        <path d="M17 22v-5h5" />
+        <rect x="3" y="8" width="18" height="8" rx="2" />
+        <path d="M7 12h2" />
+        <path d="M11 12h2" />
+        <path d="M15 12h2" />
       </svg>
     ),
     title: "Recognition",
