@@ -26,8 +26,8 @@ const articles = [
     title: "New Feature: Multi-Location Management",
     description:
       "We've rolled out new tools for managing inventory across multiple locations.",
-    image: "https://images.unsplash.com/photo-1723307061004-6e2e087deae1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWFwJTIwaW50ZXJmYWNlfGVufDB8fHx8MTc1NjMwODgwOXww&ixlib=rb-4.1.0&q=80&w=1080",
-    hint: "map interface",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzI0NjAzMDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    hint: "business meeting",
   },
   {
     category: "Case Study",
@@ -61,7 +61,6 @@ export function News() {
         </div>
 
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-          {/* Featured Article */}
           <Link href="#" className="group block h-full">
             <Card className="overflow-hidden h-full flex flex-col bg-neutral-900 border-neutral-800 rounded-lg">
               <div className="overflow-hidden">
@@ -88,7 +87,6 @@ export function News() {
             </Card>
           </Link>
 
-          {/* Other Articles */}
           <div className="flex flex-col gap-2 justify-between">
             {otherArticles.map((article) => (
               <Link href="#" key={article.title} className="group block">
