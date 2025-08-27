@@ -16,14 +16,11 @@ const stepsData = [
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M2 12V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2.5" />
-        <path d="m21.29 14.71-3.54-3.54A2 2 0 0 0 16.34 11H14" />
-        <path d="M11 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
-        <path d="M17 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
-        <path d="M7 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
-        <path d="M22 19.5 19 17v-1.5" />
-        <path d="m15 13-1-2" />
-        <path d="M3 13 2 11" />
+        <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+        <path d="M18 9h2a2 2 0 0 1 2 2v4l-3-3v-3" />
+        <path d="M7 11v-1a2 2 0 0 1 2-2h2" />
+        <path d="m22 22-5-5" />
+        <path d="M17 22v-5h5" />
       </svg>
     ),
     title: "Recognition",
@@ -51,15 +48,18 @@ const arrowVariants = {
 export function Benefits() {
   return (
     <section className="py-20 md:py-32">
-      <div className="container mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto">
+      <div className="container max-w-[1058px] px-0">
+        <div className="text-left ">
+        <div className="flex items-center justify-start gap-2">
+            <div className="w-[10px] h-[16px] bg-primary rounded-lg"></div>
+            <span className="leading-0 font-semibold text-base">How It Works</span>
+          </div>
           <h2 className="text-3xl sm:text-4xl font-headline font-normal mt-2">
-            Visible Connected Workflow
+          Grow Sales Without Growing Staff
+          Smart upsells, faster prep.
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
-            Our system provides a seamless, transparent workflow from customer
-            recognition to predictive ordering, ensuring efficiency at every
-            step.
+          Franchise owners lose sales to long queues and rushed service. Anuba’s vehicle intelligence, predictive ordering, and prep optimization deliver faster service and more revenue — without extra staff or costly upgrades.
           </p>
         </div>
 
@@ -90,7 +90,6 @@ export function Benefits() {
                       duration: 1.5,
                       repeat: Infinity,
                       repeatType: "loop",
-                      delay: index * 0.5,
                     }}
                   >
                     <ArrowRight className="h-8 w-8 text-muted-foreground/50" />
