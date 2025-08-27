@@ -1,13 +1,14 @@
 "use client";
 
 import { ArrowRight, BarChart3, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const stepsData = [
   {
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-16 w-16 text-foreground"
+        className="h-16 w-16 text-primary"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -38,6 +39,18 @@ const stepsData = [
   },
 ];
 
+const arrowVariants = {
+  initial: { x: 0 },
+  animate: {
+    x: [0, 5, 0],
+    transition: {
+      duration: 1.5,
+      repeat: Infinity,
+      repeatType: "loop",
+    },
+  },
+};
+
 export function Benefits() {
   return (
     <section className="py-20 md:py-32">
@@ -67,7 +80,13 @@ export function Benefits() {
               </div>
               {index < stepsData.length - 1 && (
                 <div className="hidden md:flex items-center justify-center h-40">
-                  <ArrowRight className="h-8 w-8 text-muted-foreground/50" />
+                  <motion.div
+                    variants={arrowVariants}
+                    initial="initial"
+                    animate="animate"
+                  >
+                    <ArrowRight className="h-8 w-8 text-muted-foreground/50" />
+                  </motion.div>
                 </div>
               )}
             </>
