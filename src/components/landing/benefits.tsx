@@ -2,6 +2,8 @@
 
 import { ArrowRight, BarChart3, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { ShimmerButton } from "../magicui/shimmer-button";
+import Link from "next/link";
 
 const stepsData = [
   {
@@ -49,16 +51,22 @@ export function Benefits() {
     <section className="py-20 md:py-32">
       <div className="container max-w-[1058px] px-0">
         <div className="text-left ">
-        <div className="flex items-center justify-start gap-2">
+          <div className="flex items-center justify-start gap-2">
             <div className="w-[10px] h-[16px] bg-primary rounded-lg"></div>
-            <span className="leading-0 font-semibold text-base">How It Works</span>
+            <span className="leading-0 font-semibold text-base">
+              How It Works
+            </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-headline font-normal mt-2">
-          Grow Sales Without Growing Staff
-          Smart upsells, faster prep.
+            Grow Sales Without Growing Staff.
+            <br />
+            Smart upsells, faster prep.
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
-          Franchise owners lose sales to long queues and rushed service. Anuba’s vehicle intelligence, predictive ordering, and prep optimization deliver faster service and more revenue — without extra staff or costly upgrades.
+            Franchise owners lose sales to long queues and rushed service.
+            Anuba’s vehicle intelligence, predictive ordering, and prep
+            optimization deliver faster service and more revenue — without extra
+            staff or costly upgrades.
           </p>
         </div>
 
@@ -97,6 +105,26 @@ export function Benefits() {
               )}
             </>
           ))}
+        </div>
+        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link href="/#contact">
+            <ShimmerButton className="py-2.5" background="#F1573B">
+              <span className="whitespace-pre-wrap text-center !text-sm font-medium leading-none tracking-tight text-white">
+                Request a Live Demo
+              </span>
+            </ShimmerButton>
+          </Link>
+          <Link href="#">
+            <ShimmerButton
+              className="py-2.5"
+              background="hsl(var(--background))"
+              shimmerColor="#F1573B"
+            >
+              <span className="whitespace-pre-wrap text-center !text-sm font-medium leading-none tracking-tight text-primary">
+                View Customer Story
+              </span>
+            </ShimmerButton>
+          </Link>
         </div>
       </div>
     </section>
