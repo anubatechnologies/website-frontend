@@ -16,12 +16,14 @@ const stepsData = [
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M10 20H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h1.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2" />
-        <path d="M14 17.5V15a2.5 2.5 0 0 1 5 0v2.5" />
-        <path d="M14 15h5" />
-        <rect width="4" height="4" x="16" y="7" rx="1" />
-        <circle cx="7" cy="17" r="2" />
-        <circle cx="17" cy="17" r="2" />
+        <path d="M2 12V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2.5" />
+        <path d="m21.29 14.71-3.54-3.54A2 2 0 0 0 16.34 11H14" />
+        <path d="M11 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+        <path d="M17 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+        <path d="M7 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+        <path d="M22 19.5 19 17v-1.5" />
+        <path d="m15 13-1-2" />
+        <path d="M3 13 2 11" />
       </svg>
     ),
     title: "Recognition",
@@ -43,11 +45,6 @@ const arrowVariants = {
   initial: { x: 0 },
   animate: {
     x: [0, 5, 0],
-    transition: {
-      duration: 1.5,
-      repeat: Infinity,
-      repeatType: "loop",
-    },
   },
 };
 
@@ -84,6 +81,12 @@ export function Benefits() {
                     variants={arrowVariants}
                     initial="initial"
                     animate="animate"
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      delay: index * 0.5,
+                    }}
                   >
                     <ArrowRight className="h-8 w-8 text-muted-foreground/50" />
                   </motion.div>
