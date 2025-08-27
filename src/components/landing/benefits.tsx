@@ -56,6 +56,11 @@ export function Benefits() {
           <h2 className="text-3xl sm:text-4xl font-headline font-normal mt-2">
             Visible Connected Workflow
           </h2>
+          <p className="mt-4 text-base text-muted-foreground">
+            Our system provides a seamless, transparent workflow from customer
+            recognition to predictive ordering, ensuring efficiency at every
+            step.
+          </p>
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 items-start">
