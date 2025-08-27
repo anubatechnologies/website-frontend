@@ -50,7 +50,7 @@ export function News() {
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Featured Article */}
           <Link href="#" className="group block">
-            <Card className="overflow-hidden h-full flex flex-col bg-neutral-900 border-neutral-800 transition-all duration-300 ease-in-out hover:-translate-y-2">
+            <Card className="overflow-hidden h-full flex flex-col bg-neutral-900 border-neutral-800">
               <div className="overflow-hidden">
                 <Image
                   src={featuredArticle.image}
@@ -75,14 +75,14 @@ export function News() {
           <div className="flex flex-col gap-8">
             {otherArticles.map((article) => (
               <Link href="#" key={article.title} className="group block">
-                <Card className="overflow-hidden bg-neutral-900 border-neutral-800 transition-all duration-300 ease-in-out hover:-translate-y-1 flex">
-                  <div className="w-1/3">
+                <Card className="overflow-hidden bg-neutral-900 border-neutral-800 flex">
+                  <div className="w-1/3 overflow-hidden">
                     <Image
                       src={article.image}
                       alt={article.title}
                       width={150}
                       height={150}
-                      className="object-cover w-full h-full"
+                      className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-105"
                       data-ai-hint={article.hint}
                     />
                   </div>
