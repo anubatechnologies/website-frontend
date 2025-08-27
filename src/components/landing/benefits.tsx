@@ -107,10 +107,10 @@ export function Benefits() {
           ))}
         </div>
         <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/#contact">
+          <Link href="/problems-we-solve">
             <ShimmerButton className="py-2.5" background="#F1573B">
               <span className="whitespace-pre-wrap text-center !text-sm font-medium leading-none tracking-tight text-white">
-                Request a Live Demo
+              Problems We Solve
               </span>
             </ShimmerButton>
           </Link>
@@ -121,7 +121,7 @@ export function Benefits() {
               shimmerColor="#F1573B"
             >
               <span className="whitespace-pre-wrap text-center !text-sm font-medium leading-none tracking-tight text-primary">
-                View Customer Story
+              Predictive Ordering Solutions
               </span>
             </ShimmerButton>
           </Link>
