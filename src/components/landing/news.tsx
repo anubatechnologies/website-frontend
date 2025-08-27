@@ -11,7 +11,7 @@ const articles = [
     description:
       "This new integration allows for seamless data flow between Anuba's prediction engine and Nova's point-of-sale system, unlocking new efficiencies for restaurants.",
     image:
-      "https://images.unsplash.com/photo-1647006873198-83c7e502c1bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0d28lMjBsb2dvc3xlbnwwfHx8fDE3NTYzMDg4MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGVza3RvcCUyMGNvbXB1dGVyfGVufDB8fDB8fHww",
     hint: "two logos",
   },
   {
