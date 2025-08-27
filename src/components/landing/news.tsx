@@ -40,17 +40,17 @@ export function News() {
   const otherArticles = articles.slice(1);
 
   return (
-    <section id="news" className="py-20 md:py-32 bg-black text-white">
+    <section id="news" className="py-20 md:py-32 bg-[#101E2D] text-white">
       <div className="container mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <span className="text-primary font-semibold">Resources</span>
           <h2 className="text-3xl sm:text-4xl font-headline font-normal mt-2 text-white">Keep up with our latest news and updates</h2>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Featured Article */}
-          <Link href="#" className="group block">
-            <Card className="overflow-hidden h-full flex flex-col bg-neutral-900 border-neutral-800">
+          <Link href="#" className="group block h-full">
+            <Card className="overflow-hidden h-full flex flex-col bg-neutral-900 border-neutral-800 rounded-lg">
               <div className="overflow-hidden">
                 <Image
                   src={featuredArticle.image}
@@ -72,10 +72,10 @@ export function News() {
           </Link>
           
           {/* Other Articles */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 justify-between">
             {otherArticles.map((article) => (
               <Link href="#" key={article.title} className="group block">
-                <Card className="overflow-hidden bg-neutral-900 border-neutral-800 flex">
+                <Card className="overflow-hidden bg-neutral-900 border-neutral-800 flex rounded-lg">
                   <div className="w-1/3 overflow-hidden">
                     <Image
                       src={article.image}
