@@ -2,94 +2,71 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { ArrowUpRight } from 'lucide-react';
 
-const featuredArticle = {
-  category: "Partnerships",
-  title: "Anuba and Nova POS Announce Integration",
-  description: "This new integration allows for seamless data flow between Anuba's prediction engine and Nova's point-of-sale system, unlocking new efficiencies for restaurants.",
-  image: "https://placehold.co/600x400.png",
-  hint: "two logos"
-};
-
-const otherArticles = [
-  {
-    category: "News",
-    title: "The Future of AI in the Restaurant Industry",
-    description: "Explore how artificial intelligence is reshaping everything from inventory to customer service.",
-    image: "https://placehold.co/200x150.png",
-    hint: "restaurant interior"
-  },
-  {
-    category: "Product",
-    title: "New Feature: Multi-Location Management",
-    description: "We're excited to roll out new tools that make managing inventory across multiple locations easier than ever.",
-    image: "https://placehold.co/200x150.png",
-    hint: "map interface"
-  },
-  {
-    category: "Case Study",
-    title: "How The Daily Grind Boosted Profits by 25%",
-    description: "Learn how this popular coffee chain leveraged Anuba to reduce waste and increase sales.",
-    image: "https://placehold.co/200x150.png",
-    hint: "coffee shop"
-  },
+const articles = [
+    {
+        category: "Partnerships",
+        title: "Anuba and Nova POS Announce Integration",
+        description: "This new integration allows for seamless data flow between Anuba's prediction engine and Nova's point-of-sale system.",
+        image: "https://picsum.photos/600/400",
+        hint: "two logos"
+    },
+    {
+        category: "News",
+        title: "The Future of AI in the Restaurant Industry",
+        description: "Explore how artificial intelligence is reshaping everything from inventory management to customer service.",
+        image: "https://picsum.photos/600/400",
+        hint: "restaurant interior"
+    },
+    {
+        category: "Product",
+        title: "New Feature: Multi-Location Management",
+        description: "We're excited to roll out new tools that make managing inventory across multiple locations easier than ever.",
+        image: "https://picsum.photos/600/400",
+        hint: "map interface"
+    },
 ];
 
 export function News() {
   return (
-    <section id="news" className="py-20 md:py-32 bg-secondary/50">
+    <section id="news" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto max-w-[1058px] px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <span className="text-primary font-semibold">Resources</span>
           <h2 className="text-3xl sm:text-4xl font-headline font-normal mt-2">Keep up with our latest news and updates</h2>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card className="overflow-hidden">
-            <CardContent className="p-0">
-              <Image
-                src={featuredArticle.image}
-                alt={featuredArticle.title}
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover"
-                data-ai-hint={featuredArticle.hint}
-              />
-              <div className="p-6">
-                <p className="text-sm text-primary font-semibold">{featuredArticle.category}</p>
-                <h3 className="text-xl sm:text-2xl font-headline font-semibold mt-2">
-                  <Link href="#" className="hover:underline">{featuredArticle.title}</Link>
-                </h3>
-                <p className="mt-4 text-muted-foreground">{featuredArticle.description}</p>
-              </div>
-            </CardContent>
-          </Card>
-
-          <div className="space-y-6">
-            {otherArticles.map((article) => (
-              <Card key={article.title}>
-                <CardContent className="p-4 flex items-center gap-4">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    width={150}
-                    height={100}
-                    className="rounded-md object-cover"
-                    data-ai-hint={article.hint}
-                  />
-                  <div className="space-y-1">
-                     <p className="text-sm text-primary font-semibold">{article.category}</p>
-                     <h4 className="font-headline font-semibold">
-                       <Link href="#" className="hover:underline">{article.title}</Link>
-                     </h4>
-                  </div>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {articles.map((article) => (
+            <Link href="#" key={article.title} className="group block">
+              <Card className="overflow-hidden h-full flex flex-col bg-card border-border/50 transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2">
+                <div className="overflow-hidden">
+                    <Image
+                        src={article.image}
+                        alt={article.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-48 object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                        data-ai-hint={article.hint}
+                    />
+                </div>
+                <CardContent className="p-6 flex flex-col flex-grow">
+                  <p className="text-sm text-primary font-semibold mb-2">{article.category}</p>
+                  <h3 className="text-lg font-headline font-semibold flex-grow">
+                    {article.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{article.description}</p>
                 </CardContent>
               </Card>
-            ))}
-          </div>
+            </Link>
+          ))}
         </div>
-        <div className="mt-12 text-center">
-            <Button size="lg">View all resources</Button>
+        <div className="mt-16 text-center">
+            <Button size="lg" variant="outline">
+                View all resources
+                <ArrowUpRight className="h-4 w-4 ml-2" />
+            </Button>
         </div>
       </div>
     </section>
