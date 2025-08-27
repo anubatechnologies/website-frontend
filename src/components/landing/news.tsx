@@ -75,16 +75,18 @@ export function News() {
           <div className="flex flex-col gap-8">
             {otherArticles.map((article) => (
               <Link href="#" key={article.title} className="group block">
-                <Card className="overflow-hidden bg-neutral-900 border-neutral-800 transition-all duration-300 ease-in-out hover:-translate-y-1">
-                  <CardContent className="p-4 flex items-center gap-4">
+                <Card className="overflow-hidden bg-neutral-900 border-neutral-800 transition-all duration-300 ease-in-out hover:-translate-y-1 flex">
+                  <div className="w-1/3">
                     <Image
                       src={article.image}
                       alt={article.title}
                       width={150}
-                      height={100}
-                      className="rounded-md object-cover w-1/3"
+                      height={150}
+                      className="object-cover w-full h-full"
                       data-ai-hint={article.hint}
                     />
+                  </div>
+                  <CardContent className="p-4 w-2/3 flex flex-col justify-center text-left">
                     <div className="space-y-1">
                       <p className="text-sm text-primary font-semibold">{article.category}</p>
                       <h4 className="font-headline font-semibold group-hover:text-primary transition-colors text-white">{article.title}</h4>
