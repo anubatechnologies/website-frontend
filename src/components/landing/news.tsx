@@ -72,10 +72,10 @@ export function News() {
           </Link>
           
           {/* Other Articles */}
-          <div className="flex flex-col gap-4 justify-between">
+          <div className="flex flex-col gap-2 justify-between">
             {otherArticles.map((article) => (
               <Link href="#" key={article.title} className="group block">
-                <Card className="overflow-hidden border-neutral-800 flex rounded-lg">
+                <Card className="overflow-hidden bg-transparent border-neutral-800 flex rounded-lg">
                   <div className="w-1/3 overflow-hidden">
                     <Image
                       src={article.image}
