@@ -10,7 +10,8 @@ const articles = [
     title: "Anuba and Nova POS Announce Integration",
     description:
       "This new integration allows for seamless data flow between Anuba's prediction engine and Nova's point-of-sale system, unlocking new efficiencies for restaurants.",
-    image: "https://images.unsplash.com/photo-1647006873198-83c7e502c1bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0d28lMjBsb2dvc3xlbnwwfHx8fDE3NTYzMDg4MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image:
+      "https://images.unsplash.com/photo-1647006873198-83c7e502c1bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0d28lMjBsb2dvc3xlbnwwfHx8fDE3NTYzMDg4MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "two logos",
   },
   {
@@ -18,7 +19,8 @@ const articles = [
     title: "The Future of AI in the Restaurant Industry",
     description:
       "Explore how AI is reshaping inventory management and customer service.",
-    image: "https://images.unsplash.com/photo-1494346480775-936a9f0d0877?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzU2MzA4ODEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image:
+      "https://images.unsplash.com/photo-1494346480775-936a9f0d0877?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzU2MzA4ODEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "restaurant interior",
   },
   {
@@ -26,7 +28,8 @@ const articles = [
     title: "New Feature: Multi-Location Management",
     description:
       "We've rolled out new tools for managing inventory across multiple locations.",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzI0NjAzMDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image:
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzI0NjAzMDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "business meeting",
   },
   {
@@ -34,7 +37,8 @@ const articles = [
     title: "How The Daily Grind Boosted Profits by 25%",
     description:
       "Learn how one of our clients transformed their business with our platform.",
-    image: "https://images.unsplash.com/photo-1493857671505-72967e2e2760?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTc1NjMwODgxMHww&ixlib=rb-4.1.0&q=80&w=1080",
+    image:
+      "https://images.unsplash.com/photo-1493857671505-72967e2e2760?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTc1NjMwODgxMHww&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "coffee shop",
   },
 ];
@@ -69,7 +73,7 @@ export function News() {
                   alt={featuredArticle.title}
                   width={800}
                   height={600}
-                  className="w-full h-auto object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  className="w-full h-auto object-cover transition-transform duration-300 ease-in-out group-hover:scale-105 rounded-lg"
                   data-ai-hint={featuredArticle.hint}
                 />
               </div>
@@ -97,7 +101,7 @@ export function News() {
                       alt={article.title}
                       width={150}
                       height={150}
-                      className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-105"
+                      className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-105 rounded-lg"
                       data-ai-hint={article.hint}
                     />
                   </div>
