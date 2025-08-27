@@ -2,9 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRightIcon, ArrowUpRight } from "lucide-react";
-import { AnimatedShinyText } from "../magicui/animated-shiny-text";
-import { ShimmerButton } from "../magicui/shimmer-button";
+import { ArrowUpRight } from "lucide-react";
 
 const articles = [
   {
@@ -12,7 +10,7 @@ const articles = [
     title: "Anuba and Nova POS Announce Integration",
     description:
       "This new integration allows for seamless data flow between Anuba's prediction engine and Nova's point-of-sale system, unlocking new efficiencies for restaurants.",
-    image: "https://picsum.photos/800/600",
+    image: "https://images.unsplash.com/photo-1647006873198-83c7e502c1bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0d28lMjBsb2dvc3xlbnwwfHx8fDE3NTYzMDg4MTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "two logos",
   },
   {
@@ -20,7 +18,7 @@ const articles = [
     title: "The Future of AI in the Restaurant Industry",
     description:
       "Explore how AI is reshaping inventory management and customer service.",
-    image: "https://picsum.photos/300/200",
+    image: "https://images.unsplash.com/photo-1494346480775-936a9f0d0877?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZXN0YXVyYW50JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzU2MzA4ODEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "restaurant interior",
   },
   {
@@ -28,7 +26,7 @@ const articles = [
     title: "New Feature: Multi-Location Management",
     description:
       "We've rolled out new tools for managing inventory across multiple locations.",
-    image: "https://picsum.photos/300/200",
+    image: "https://images.unsplash.com/photo-1723307061004-6e2e087deae1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWFwJTIwaW50ZXJmYWNlfGVufDB8fHx8MTc1NjMwODgwOXww&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "map interface",
   },
   {
@@ -36,7 +34,7 @@ const articles = [
     title: "How The Daily Grind Boosted Profits by 25%",
     description:
       "Learn how one of our clients transformed their business with our platform.",
-    image: "https://picsum.photos/300/200",
+    image: "https://images.unsplash.com/photo-1493857671505-72967e2e2760?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTc1NjMwODgxMHww&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "coffee shop",
   },
 ];
